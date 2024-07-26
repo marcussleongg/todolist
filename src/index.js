@@ -1,16 +1,10 @@
 import createProject from './createProject.js';
+import createTodo from './createTodo.js';
 
 console.log('am i working?');
 const projects = [];
-
-class ToDo {
-    constructor(title, description, dueDate, priority, project) {
-        this.title = title;
-        this.description = description;
-        this.dueDate = dueDate;
-        this.priority = priority;
-        this.project = project;
-    }
-}
+const todos = [];
 
 createProject('todolist', projects);
+createTodo('make something', 'make it asap', 'today', 'high', 'todolist', todos);
+createTodo('make something bigger', 'i love making', 'tomorrow', 'low', 'todolist', todos);
