@@ -2,6 +2,7 @@ import createProject from './createProject.js';
 import createTodo from './createTodo.js';
 import completeTask from './completeTask.js';
 import editTask from './editTask.js';
+import deleteTask from './deleteTask.js';
 
 console.log('am i working?');
 const projects = [];
