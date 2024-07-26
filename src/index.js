@@ -10,6 +10,7 @@ const todos = [];
 const completed = [];
 
 createProject('todolist', projects);
+createProject('build a program', projects);
 createTodo('make something', 'make it asap', 'today', 'high', 'todolist', todos);
 createTodo('make something bigger', 'i love making', 'tomorrow', 'low', 'todolist', todos);
 editTask('make something', 'make something small', 'make it quickly', 'today at night', 'medium', 'todolist', todos);
