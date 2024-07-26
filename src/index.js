@@ -19,7 +19,14 @@ const form = document.querySelector('form');
 const dialog = document.querySelector('dialog');
 const addTaskBtn = document.querySelector('#add');
 const dialogBtn = document.querySelector('dialog button');
+const projectDropdown = document.querySelector('#project');
 addTaskBtn.addEventListener('click', () => {
+    projects.forEach((project) => {
+        const option = document.createElement('option');
+        option.value = project.title;
+        option.innerHTML = project.title;
+        projectDropdown.appendChild(option);
+    })
     dialog.showModal();
 })
 dialogBtn.addEventListener('click', () => {
