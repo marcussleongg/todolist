@@ -20,10 +20,10 @@ completeTask('make something small', todos, completed);
 displayProj(projects);
 selectFilter(todos, 'project:todolist');
 
-const form = document.querySelector('form');
-const dialog = document.querySelector('dialog');
-const addTaskBtn = document.querySelector('#add');
-const dialogBtn = document.querySelector('dialog button');
+const taskForm = document.querySelector('#taskForm');
+const taskDialog = document.querySelector('#taskDialog');
+const addTaskBtn = document.querySelector('#newTask');
+const taskDialogBtn = document.querySelector('#taskBtn');
 const projectDropdown = document.querySelector('#project');
 addTaskBtn.addEventListener('click', () => {
     projects.forEach((project) => {
@@ -32,9 +32,9 @@ addTaskBtn.addEventListener('click', () => {
         option.innerHTML = project.title;
         projectDropdown.appendChild(option);
     })
-    dialog.showModal();
+    taskDialog.showModal();
 })
-dialogBtn.addEventListener('click', () => {
-    dialog.close();
-    form.reset();
+taskDialogBtn.addEventListener('click', () => {
+    taskDialog.close();
+    taskForm.reset();
 })
