@@ -9,11 +9,12 @@
     <h1>Test</h1>
     <button id="newTask">New Task</button>
     <button id="newProj">New Project</button>
+    <div id="projects"></div>
     <dialog id="taskDialog">
-        <button id="taskBtn" autofocus>X</button>
+        <button id="taskBtn">X</button>
         <form id="taskForm">
             <label for="name">Task Name:</label>
-            <input type="text" id="name" />
+            <input type="text" id="name" autofocus/>
             <label for="desc">Description:</label>
             <input type="text" id="desc" />
             <label for="duedate">Due Date:</label>
@@ -32,10 +33,10 @@
         </form>
     </dialog>
     <dialog id="projDialog">
-        <button id="projBtn" autofocus>X</button>
+        <button id="projBtn">X</button>
         <form id="projForm">
             <label for="title">Project Title:</label>
-            <input type="text" id="title" />
+            <input type="text" id="title" autofocus />
             <button id="addProj" type="submit">Add Project</button>
         </form>
     </dialog>
