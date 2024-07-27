@@ -20,12 +20,18 @@ completeTask('make something small', todos, completed);
 displayProj(projects);
 selectFilter(todos, 'project:todolist');
 
+const newTaskBtn = document.querySelector('#newTask');
 const taskForm = document.querySelector('#taskForm');
 const taskDialog = document.querySelector('#taskDialog');
-const addTaskBtn = document.querySelector('#newTask');
-const taskDialogBtn = document.querySelector('#taskBtn');
+const taskBtn = document.querySelector('#taskBtn');
 const projectDropdown = document.querySelector('#project');
-addTaskBtn.addEventListener('click', () => {
+const newProjBtn = document.querySelector('#newProj');
+const projForm = document.querySelector('#projForm');
+const projDialog = document.querySelector('#projDialog');
+const projBtn = document.querySelector('#projBtn');
+const addTaskBtn = document.querySelector('#addTask');
+const addProjBtn = document.querySelector('#addProj');
+newTaskBtn.addEventListener('click', () => {
     projects.forEach((project) => {
         const option = document.createElement('option');
         option.value = project.title;
@@ -34,7 +40,27 @@ addTaskBtn.addEventListener('click', () => {
     })
     taskDialog.showModal();
 })
-taskDialogBtn.addEventListener('click', () => {
+taskBtn.addEventListener('click', () => {
     taskDialog.close();
     taskForm.reset();
+})
+newProjBtn.addEventListener('click', () => {
+    projDialog.showModal();
+})
+projBtn.addEventListener('click', () => {
+    projDialog.close();
+    projForm.reset();
+})
+addTaskBtn.addEventListener('click', () => {
+    event.preventDefault();
+    createTodo(document.getElementById('name').value, document.getElementById('desc'), document.getElementById('duedate'), document.getElementById('priority'), document.getElementById('project'), todos);
+    taskDialog.close();
+    taskForm.reset();
+})
+addProjBtn.addEventListener('click', () => {
+    event.preventDefault();
+    createProject(document.getElementById('title').value, projects);
+    displayProj(projects);
+    projDialog.close();
+    projForm.reset();
 })

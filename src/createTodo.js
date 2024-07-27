@@ -10,7 +10,4 @@ export default function createTodo(title, description, dueDate, priority, projec
     }
     allTodoArr.push(new ToDo(title, description, dueDate, priority, project));
     console.log(allTodoArr);
-
-    
-    
 }
