@@ -4,7 +4,7 @@ import completeTask from './completeTask.js';
 import editTask from './editTask.js';
 import deleteTask from './deleteTask.js';
 import displayProj from './displayProj.js';
-import displayTasks from './displayTasks.js';
+import selectFilter from './filterSelection.js';
 
 console.log('am i working?');
 const projects = [];
@@ -18,7 +18,7 @@ createTodo('make something bigger', 'i love making', 'today', 'low', 'todolist',
 editTask('make something', 'make something small', 'make it quickly', 'today at night', 'medium', 'todolist', todos);
 completeTask('make something small', todos, completed);
 displayProj(projects);
-displayTasks(todos, 'project:todolist');
+selectFilter(todos, 'project:todolist');
 
 const form = document.querySelector('form');
 const dialog = document.querySelector('dialog');
