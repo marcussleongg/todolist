@@ -1,4 +1,4 @@
-import displayTasks from './displayTasks.js'
+import displayTasks from './displayTasks.js';
 
 export default function selectFilter(allTodoArr, filter) {
     let indexArr;

@@ -5,6 +5,7 @@ import editTask from './editTask.js';
 import deleteTask from './deleteTask.js';
 import displayProj from './displayProj.js';
 import selectFilter from './filterSelection.js';
+import clickOnFilter from './clickOnFilter.js';
 
 console.log('am i working?');
 const projects = [];
@@ -19,6 +20,7 @@ editTask('make something', 'make something small', 'make it quickly', 'today at 
 completeTask('make something small', todos, completed);
 displayProj(projects);
 selectFilter(todos, 'project:todolist');
+clickOnFilter(todos);
 
 const newTaskBtn = document.querySelector('#newTask');
 const taskForm = document.querySelector('#taskForm');
