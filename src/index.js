@@ -32,6 +32,9 @@ const projBtn = document.querySelector('#projBtn');
 const addTaskBtn = document.querySelector('#addTask');
 const addProjBtn = document.querySelector('#addProj');
 newTaskBtn.addEventListener('click', () => {
+    while (projectDropdown.lastElementChild) {
+        projectDropdown.removeChild(projectDropdown.lastElementChild);
+    }
     projects.forEach((project) => {
         const option = document.createElement('option');
         option.value = project.title;
