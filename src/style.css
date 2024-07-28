@@ -3,10 +3,63 @@ html, body {
     padding: 0;
 }
 
-#projects {
-    color: red;
+body {
+    display: grid;
+    height: 100vh;
+    grid: 1fr 8fr / 1fr 4fr;
+}
+
+#header {
+    grid-area: 1 / 1 / 2 / 3;
+    display: flex;
+    justify-content: space-between;
+    background-color: purple;
+}
+
+#buttons {
+    align-self: center;
+    margin-right: 3em;
+    display: flex;
+    gap: 3em;
+}
+
+#buttons button {
+    background-color: rgb(221, 221, 185);
+    height: 1.8em;
+    width: 8em;
+    border-radius: 25px;
+    font-size: 2em;
+}
+
+#buttons button::before {
+    content: '+  ';
+    margin-right: 0.5em;
+}
+
+#buttons button:hover {
+    cursor: pointer;
+}
+
+#sidebar {
+    grid-area: 2 / 1 / 3 / 2;
+    background-color: red;
+    box-shadow: rgb(54, 54, 54, 90%) 0.3em 0 0.5em;
+}
+
+#display {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+#projects p {
+    font-size: 1.7em;
+    color: white;
 }
 
 #projects p:hover {
+    cursor: pointer;
+    background-color: black;
+}
+
+#sidebar > p:hover {
     cursor: pointer;
 }
