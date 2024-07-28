@@ -5,12 +5,11 @@ export default function selectFilter(allTodoArr, filter) {
     const body = document.querySelector('body');
     //check for tasks due today and return array of indexes of these tasks
     if (filter.substring(0, filter.indexOf(':')) == 'dueDate') {
-        allTodoArr.reduce((arr, e, index) => {
-            if (e.dueDate == 'today') {
-                arr.push(index);
+        allTodoArr.forEach((todo, index) => {
+            if (todo.dueDate == filter.substring(filter.indexOf(':') + 1)) {
+                indexArr.push(index);
             };
-            indexArr = arr;
-        }, [])
+        })
         //display of string if no tasks match filter
         if (indexArr.length == 0) {
             const nullTodayDisplay = document.createElement('p');
