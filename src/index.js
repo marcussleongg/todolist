@@ -1,3 +1,4 @@
+import './style.css';
 import createProject from './createProject.js';
 import createTodo from './createTodo.js';
 import completeTask from './completeTask.js';
