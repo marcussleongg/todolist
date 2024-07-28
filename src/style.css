@@ -48,6 +48,10 @@ body {
 
 #display {
     grid-area: 2 / 2 / 3 / 3;
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 #projects p {
@@ -62,4 +66,12 @@ body {
 
 #sidebar > p:hover {
     cursor: pointer;
+}
+
+#display div {
+    background-color: rgb(231, 194, 194);
+    display: flex;
+    justify-content: space-around;
+    border-radius: 20px;
+    box-shadow: rgb(54, 54, 54, 90%) 0.3em 0.3em 0.5em;;
 }
