@@ -55,5 +55,27 @@
             <button id="addProj" type="submit">Add Project</button>
         </form>
     </dialog>
+    <dialog id="editDialog">
+        <button id="editCloseBtn">X</button>
+        <form id="editForm">
+            <label for="editName">Task Name:</label>
+            <input type="text" id="editName" autofocus />
+            <label for="editDesc">Description:</label>
+            <input type="text" id="editDesc" />
+            <label for="editDuedate">Due Date:</label>
+            <input type="date" id="editDuedate" />
+            <label for="editPriority">Priority:</label>
+            <select id="editPriority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <label for="editProject">Project:</label>
+            <select id="editProject">
+                <option value="na">-</option>
+            </select>
+            <button id="editTask" type="submit">Edit Task</button>
+        </form>
+    </dialog>
 </body>
 </html>

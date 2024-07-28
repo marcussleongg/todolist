@@ -11,7 +11,7 @@ export default function displayProj(projects, allTodoArr) {
         //projDisplay.setAttribute('id', project.title);
         let filterStr = `project:${project.title}`;
         projDisplay.addEventListener('click', () => {
-            selectFilter(allTodoArr, filterStr);
+            selectFilter(allTodoArr, filterStr, projects);
         })
         projDiv.appendChild(projDisplay);
     })

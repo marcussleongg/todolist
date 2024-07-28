@@ -22,7 +22,7 @@ createTodo('make something bigger', 'i love making', 'today', 'low', 'todolist',
 editTask('make something', 'make something small', 'make it quickly', 'today at night', 'medium', 'todolist', todos);
 completeTask('make something small', todos, completed);
 displayProj(projects, todos);
-selectFilter(todos, 'project:todolist');
-clickOnFilter(todos, completed);
+selectFilter(todos, 'project:todolist', projects);
+clickOnFilter(todos, completed, projects);
 newTaskBtnFunc(projects, todos);
 newProjBtnFunc(projects, todos);

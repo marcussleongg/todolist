@@ -1,4 +1,5 @@
 import createTodo from './createTodo.js';
+import prepForm from './prepForm.js';
 
 export default function newTaskBtnFunc(allProjsArr, allTodoArr) {
     const newTaskBtn = document.querySelector('#newTask');
@@ -8,15 +9,7 @@ export default function newTaskBtnFunc(allProjsArr, allTodoArr) {
     const taskBtn = document.querySelector('#taskBtn');
     const addTaskBtn = document.querySelector('#addTask');
     newTaskBtn.addEventListener('click', () => {
-        while (projectDropdown.lastElementChild) {
-            projectDropdown.removeChild(projectDropdown.lastElementChild);
-        }
-        allProjsArr.forEach((project) => {
-            const option = document.createElement('option');
-            option.value = project.title;
-            option.innerHTML = project.title;
-            projectDropdown.appendChild(option);
-        })
+        prepForm(projectDropdown, allProjsArr);
         taskDialog.showModal();
     })
     taskBtn.addEventListener('click', () => {

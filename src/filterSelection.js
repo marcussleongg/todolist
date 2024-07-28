@@ -1,7 +1,7 @@
 import displayTasks from './displayTasks.js';
 import clearDisplay from './clearDisplay.js';
 
-export default function selectFilter(allTodoArr, filter) {
+export default function selectFilter(allTodoArr, filter, allProjsArr) {
     let indexArr = [];
     const display = document.querySelector('#display');
     //check for tasks due today and return array of indexes of these tasks
@@ -21,7 +21,7 @@ export default function selectFilter(allTodoArr, filter) {
         } else {
             clearDisplay();
             indexArr.forEach((i) => {
-                displayTasks(allTodoArr, i);
+                displayTasks(allTodoArr, i, allProjsArr);
             })
         }
         //check for tasks that match the project clicked on and return array of indexes of these tasks
@@ -41,7 +41,7 @@ export default function selectFilter(allTodoArr, filter) {
         } else {
             clearDisplay();
             indexArr.forEach((i) => {
-                displayTasks(allTodoArr, i);
+                displayTasks(allTodoArr, i, allProjsArr);
             })
         }
     }
