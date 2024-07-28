@@ -21,7 +21,7 @@ editTask('make something', 'make something small', 'make it quickly', 'today at 
 completeTask('make something small', todos, completed);
 displayProj(projects, todos);
 selectFilter(todos, 'project:todolist');
-clickOnFilter(todos);
+clickOnFilter(todos, completed);
 
 const newTaskBtn = document.querySelector('#newTask');
 const taskForm = document.querySelector('#taskForm');
