@@ -18,7 +18,7 @@ createTodo('make something', 'make it asap', 'today', 'high', 'todolist', todos)
 createTodo('make something bigger', 'i love making', 'today', 'low', 'todolist', todos);
 editTask('make something', 'make something small', 'make it quickly', 'today at night', 'medium', 'todolist', todos);
 completeTask('make something small', todos, completed);
-displayProj(projects);
+displayProj(projects, todos);
 selectFilter(todos, 'project:todolist');
 clickOnFilter(todos);
 
@@ -58,14 +58,14 @@ projBtn.addEventListener('click', () => {
 })
 addTaskBtn.addEventListener('click', () => {
     event.preventDefault();
-    createTodo(document.getElementById('name').value, document.getElementById('desc'), document.getElementById('duedate'), document.getElementById('priority'), document.getElementById('project'), todos);
+    createTodo(document.getElementById('name').value, document.getElementById('desc').value, document.getElementById('duedate').value, document.getElementById('priority').value, document.getElementById('project').value, todos);
     taskDialog.close();
     taskForm.reset();
 })
 addProjBtn.addEventListener('click', () => {
     event.preventDefault();
     createProject(document.getElementById('title').value, projects);
-    displayProj(projects);
+    displayProj(projects, todos);
     projDialog.close();
     projForm.reset();
 })
