@@ -1,4 +1,5 @@
 import displayTasks from './displayTasks.js';
+import clearDisplay from './clearDisplay.js';
 
 export default function selectFilter(allTodoArr, filter) {
     let indexArr = [];
@@ -12,11 +13,13 @@ export default function selectFilter(allTodoArr, filter) {
         })
         //display of string if no tasks match filter
         if (indexArr.length == 0) {
+            clearDisplay();
             const nullTodayDisplay = document.createElement('p');
             nullTodayDisplay.innerHTML = 'No tasks due today';
             display.appendChild(nullTodayDisplay);
         //display tasks which match filter of dueDate:today
         } else {
+            clearDisplay();
             indexArr.forEach((i) => {
                 displayTasks(allTodoArr, i);
             })
@@ -30,11 +33,13 @@ export default function selectFilter(allTodoArr, filter) {
         })
         //display of string if no tasks match filter
         if (indexArr.length == 0) {
+            clearDisplay();
             const nullProjTasksDisplay = document.createElement('p');
             nullProjTasksDisplay.innerHTML = 'No tasks under this project';
             display.appendChild(nullProjTasksDisplay);
         //display tasks which match filter of project selected
         } else {
+            clearDisplay();
             indexArr.forEach((i) => {
                 displayTasks(allTodoArr, i);
             })

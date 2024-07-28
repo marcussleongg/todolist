@@ -1,5 +1,4 @@
 import selectFilter from "./filterSelection.js";
-import clearDisplay from './clearDisplay.js';
 
 export default function displayProj(projects, allTodoArr) {
     const projDiv = document.querySelector('#projects');
@@ -12,7 +11,6 @@ export default function displayProj(projects, allTodoArr) {
         //projDisplay.setAttribute('id', project.title);
         let filterStr = `project:${project.title}`;
         projDisplay.addEventListener('click', () => {
-            clearDisplay();
             selectFilter(allTodoArr, filterStr);
         })
         projDiv.appendChild(projDisplay);
