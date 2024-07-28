@@ -4,7 +4,7 @@ export default function editBtnFunc(allTodoArr, index, allProjsArr) {
     const editForm = document.querySelector('#editForm');
     const editDialog = document.querySelector('#editDialog');
     const projectDropdown = document.querySelector('#editProject');
-    const editBtn = document.querySelector('#editbtn');
+    const allEditBtns = document.querySelectorAll('#editbtn');
     const displayName = document.querySelector('#editName');
     const displayDesc = document.querySelector('#editDesc');
     const displayDuedate = document.querySelector('#editDuedate');
@@ -12,14 +12,16 @@ export default function editBtnFunc(allTodoArr, index, allProjsArr) {
     const displayProject = document.querySelector('#editProject');
     const formBtn = document.querySelector('#editTask');
     const editCloseBtn = document.querySelector('#editCloseBtn');
-    editBtn.addEventListener('click', () => {
-        prepForm(projectDropdown, allProjsArr);
-        displayName.value = allTodoArr[index].title;
-        displayDesc.value = allTodoArr[index].description;
-        displayDuedate.value = allTodoArr[index].dueDate;
-        displayPriority.value = allTodoArr[index].priority;
-        displayProject.value = allTodoArr[index].project;
-        editDialog.showModal();
+    allEditBtns.forEach((editBtn) => {
+        editBtn.addEventListener('click', () => {
+            prepForm(projectDropdown, allProjsArr);
+            displayName.value = editBtn.parentNode.firstChild.textContent;
+            displayDesc.value = editBtn.previousElementSibling.textContent;
+            displayDuedate.value = editBtn.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent;
+            displayPriority.value = editBtn.previousElementSibling.previousElementSibling.textContent;
+            displayProject.value = editBtn.previousElementSibling.previousElementSibling.previousElementSibling.textContent;
+            editDialog.showModal();
+        })
     })
     editCloseBtn.addEventListener('click', () => {
         editDialog.close();

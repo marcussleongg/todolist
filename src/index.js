@@ -18,7 +18,7 @@ const completed = [];
 createProject('todolist', projects);
 createProject('build a program', projects);
 createTodo('make something', 'make it asap', 'today', 'high', 'todolist', todos);
-createTodo('make something bigger', 'i love making', 'today', 'low', 'todolist', todos);
+createTodo('make something bigger', 'i love making', 'today', 'Low', 'todolist', todos);
 editTask('make something', 'make something small', 'make it quickly', 'today at night', 'medium', 'todolist', todos);
 completeTask('make something small', todos, completed);
 displayProj(projects, todos);
