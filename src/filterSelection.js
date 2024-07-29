@@ -21,7 +21,7 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
         } else {
             clearDisplay();
             indexArr.forEach((i) => {
-                displayTasks(allTodoArr, i, allProjsArr);
+                displayTasks(allTodoArr, i, allProjsArr, completedTasksArr);
             })
         }
         display.setAttribute('class', filter);
@@ -42,7 +42,7 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
         } else {
             clearDisplay();
             indexArr.forEach((i) => {
-                displayTasks(allTodoArr, i, allProjsArr);
+                displayTasks(allTodoArr, i, allProjsArr, completedTasksArr);
             })
         }
         display.setAttribute('class', filter);
@@ -57,7 +57,7 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
         } else {
             clearDisplay();
             allTodoArr.forEach((task) => {
-                displayTasks(allTodoArr, allTodoArr.indexOf(task), allProjsArr)
+                displayTasks(allTodoArr, allTodoArr.indexOf(task), allProjsArr, completedTasksArr)
             })
         }
         display.setAttribute('class', 'alltasks');
@@ -70,7 +70,7 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
         } else {
             clearDisplay();
             completedTasksArr.forEach((task) => {
-                displayTasks(completedTasksArr, completedTasksArr.indexOf(task), allProjsArr)
+                displayTasks(completedTasksArr, completedTasksArr.indexOf(task), allProjsArr, completedTasksArr)
             })
         }
         display.setAttribute('class', 'completedtasks');

@@ -1,6 +1,6 @@
 import editBtnFunc from './editBtn.js'
 
-export default function displayTasks(allTodoArr, index, allProjsArr) {
+export default function displayTasks(allTodoArr, index, allProjsArr, completedTasksArr) {
     const display = document.querySelector('#display');
     const taskDisplay = document.createElement('div');
     const titleDisplay = document.createElement('p');
@@ -25,5 +25,5 @@ export default function displayTasks(allTodoArr, index, allProjsArr) {
     editBtn.setAttribute('id', 'editbtn');
     taskDisplay.appendChild(editBtn);
     display.appendChild(taskDisplay);
-    editBtnFunc(allTodoArr, index, allProjsArr);
+    editBtnFunc(allTodoArr, index, allProjsArr, completedTasksArr);
 }

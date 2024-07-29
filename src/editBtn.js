@@ -1,6 +1,9 @@
 import prepForm from "./prepForm.js";
+import editTask from "./editTask.js";
+import selectFilter from "./filterSelection.js";
 
-export default function editBtnFunc(allTodoArr, index, allProjsArr) {
+export default function editBtnFunc(allTodoArr, index, allProjsArr, completedTasksArr) {
+    const display = document.querySelector('#display');
     const editForm = document.querySelector('#editForm');
     const editDialog = document.querySelector('#editDialog');
     const projectDropdown = document.querySelector('#editProject');
@@ -21,15 +24,16 @@ export default function editBtnFunc(allTodoArr, index, allProjsArr) {
             displayPriority.value = editBtn.previousElementSibling.previousElementSibling.textContent;
             displayProject.value = editBtn.previousElementSibling.previousElementSibling.previousElementSibling.textContent;
             editDialog.showModal();
+            formBtn.addEventListener('click', () => {
+                event.preventDefault();
+                editTask(editBtn.parentNode.firstChild.textContent, document.getElementById('editName').value, document.getElementById('editDesc').value, document.getElementById('editDuedate').value, document.getElementById('editPriority').value, document.getElementById('editProject').value, allTodoArr);
+                selectFilter(allTodoArr, display.className, allProjsArr, completedTasksArr);
+                editDialog.close();
+                editForm.reset();
+            })
         })
     })
     editCloseBtn.addEventListener('click', () => {
-        editDialog.close();
-        editForm.reset();
-    })
-    formBtn.addEventListener('click', () => {
-        event.preventDefault();
-        //createTodo(document.getElementById('name').value, document.getElementById('desc').value, document.getElementById('duedate').value, document.getElementById('priority').value, document.getElementById('project').value, allTodoArr);
         editDialog.close();
         editForm.reset();
     })
