@@ -1,6 +1,7 @@
 import prepForm from "./prepForm.js";
 import editTask from "./editTask.js";
 import selectFilter from "./filterSelection.js";
+import toggleExpansion from "./toggleExpansion.js";
 
 export default function editBtnFunc(allTodoArr, index, allProjsArr, completedTasksArr) {
     const display = document.querySelector('#display');
@@ -17,6 +18,7 @@ export default function editBtnFunc(allTodoArr, index, allProjsArr, completedTas
     const editCloseBtn = document.querySelector('#editCloseBtn');
     allEditBtns.forEach((editBtn) => {
         editBtn.addEventListener('click', () => {
+            toggleExpansion(editBtn.parentNode.parentNode);
             prepForm(projectDropdown, allProjsArr);
             displayName.value = editBtn.parentNode.firstChild.textContent;
             displayDesc.value = editBtn.parentNode.nextSibling.firstChild.textContent;
