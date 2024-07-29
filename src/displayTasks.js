@@ -1,4 +1,5 @@
-import editBtnFunc from './editBtn.js'
+import editBtnFunc from './editBtn.js';
+import delBtnFunc from './deleteBtn.js';
 
 export default function displayTasks(allTodoArr, index, allProjsArr, completedTasksArr) {
     const display = document.querySelector('#display');
@@ -9,6 +10,7 @@ export default function displayTasks(allTodoArr, index, allProjsArr, completedTa
     const projectDisplay = document.createElement('p');
     const priorityDisplay = document.createElement('p');
     const editBtn = document.createElement('button');
+    const delBtn = document.createElement('button');
     //index provided here depends on the index array provided in filterSelection.js, where this module is called
     titleDisplay.innerHTML = allTodoArr[index].title;
     taskDisplay.appendChild(titleDisplay);
@@ -24,6 +26,11 @@ export default function displayTasks(allTodoArr, index, allProjsArr, completedTa
     editBtn.innerHTML = 'Edit';
     editBtn.setAttribute('id', 'editbtn');
     taskDisplay.appendChild(editBtn);
+    //add delete button to all tasks
+    delBtn.innerHTML = 'Delete';
+    delBtn.setAttribute('id', 'delbtn');
+    taskDisplay.appendChild(delBtn);
     display.appendChild(taskDisplay);
     editBtnFunc(allTodoArr, index, allProjsArr, completedTasksArr);
+    delBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
 }
