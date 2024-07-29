@@ -24,7 +24,7 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
                 displayTasks(allTodoArr, i, allProjsArr);
             })
         }
-        display.setAttribute('class', filter.substring(0, filter.indexOf(':')));
+        display.setAttribute('class', filter);
         //check for tasks that match the project clicked on and return array of indexes of these tasks
     } else if (filter.substring(0, filter.indexOf(':')) == 'project') {
         allTodoArr.forEach((todo, index) => {
@@ -45,9 +45,10 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
                 displayTasks(allTodoArr, i, allProjsArr);
             })
         }
-        display.setAttribute('class', filter.substring(filter.indexOf(':') + 1));
+        display.setAttribute('class', filter);
     }
     else if (filter == 'alltasks') {
+        console.log('working here')
         if (allTodoArr.length == 0) {
             clearDisplay();
             const nullTasksDisplay = document.createElement('p');
@@ -59,7 +60,7 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
                 displayTasks(allTodoArr, allTodoArr.indexOf(task), allProjsArr)
             })
         }
-        display.setAttribute('class', 'allTasks');
+        display.setAttribute('class', 'alltasks');
     } else if (filter == 'completedtasks') {
         if (completedTasksArr.length == 0) {
             clearDisplay();
@@ -72,6 +73,6 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
                 displayTasks(completedTasksArr, completedTasksArr.indexOf(task), allProjsArr)
             })
         }
-        display.setAttribute('class', 'completedTasks');
+        display.setAttribute('class', 'completedtasks');
     }
 }

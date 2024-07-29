@@ -1,7 +1,5 @@
 import selectFilter from './filterSelection.js';
 import { format } from "date-fns";
-import clearDisplay from './clearDisplay.js';
-import displayTasks from './displayTasks.js';
 
 //behavior for clicking on projects are in displayProj.js
 export default function clickOnFilter(allTodoArr, completedTasksArr, allProjsArr) {

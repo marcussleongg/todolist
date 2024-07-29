@@ -24,5 +24,5 @@ completeTask('make something small', todos, completed);
 displayProj(projects, todos);
 selectFilter(todos, 'project:todolist', projects, completed);
 clickOnFilter(todos, completed, projects);
-newTaskBtnFunc(projects, todos);
+newTaskBtnFunc(projects, todos, completed);
 newProjBtnFunc(projects, todos);
