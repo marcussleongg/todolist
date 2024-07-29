@@ -2,6 +2,7 @@ import prepForm from "./prepForm.js";
 import editTask from "./editTask.js";
 import selectFilter from "./filterSelection.js";
 import toggleExpansion from "./toggleExpansion.js";
+import { format } from "date-fns";
 
 export default function editBtnFunc(allTodoArr, index, allProjsArr, completedTasksArr) {
     const display = document.querySelector('#display');
@@ -23,6 +24,7 @@ export default function editBtnFunc(allTodoArr, index, allProjsArr, completedTas
             displayName.value = editBtn.parentNode.firstChild.textContent;
             displayDesc.value = editBtn.parentNode.nextSibling.firstChild.textContent;
             displayDuedate.value = editBtn.previousElementSibling.previousElementSibling.textContent.slice(5);
+            displayDuedate.setAttribute('min', format(new Date(), "yyyy-MM-dd"))
             displayPriority.value = editBtn.previousElementSibling.textContent.slice(10);
             displayProject.value = editBtn.parentNode.nextSibling.lastChild.textContent.slice(9);
             editDialog.showModal();

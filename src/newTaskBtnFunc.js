@@ -1,6 +1,7 @@
 import createTodo from './createTodo.js';
 import prepForm from './prepForm.js';
 import selectFilter from './filterSelection.js';
+import { format } from "date-fns";
 
 export default function newTaskBtnFunc(allProjsArr, allTodoArr, completedTasksArr) {
     const newTaskBtn = document.querySelector('#newTask');
@@ -10,8 +11,10 @@ export default function newTaskBtnFunc(allProjsArr, allTodoArr, completedTasksAr
     const taskBtn = document.querySelector('#taskBtn');
     const addTaskBtn = document.querySelector('#addTask');
     const display = document.querySelector('#display');
+    const newTaskDueDate = document.querySelector('#duedate');
     newTaskBtn.addEventListener('click', () => {
         prepForm(projectDropdown, allProjsArr);
+        newTaskDueDate.setAttribute('min', format(new Date(), "yyyy-MM-dd"));
         taskDialog.showModal();
     })
     taskBtn.addEventListener('click', () => {
