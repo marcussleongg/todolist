@@ -15,6 +15,7 @@ export default function clickOnFilter(allTodoArr, completedTasksArr, allProjsArr
         allTodoArr.forEach((task) => {
             displayTasks(allTodoArr, allTodoArr.indexOf(task), allProjsArr);
         })
+        display.setAttribute('class', 'allTasks');
     })
     const completedTasks = document.querySelector('#completedtasks');
     completedTasks.addEventListener('click', () => {
@@ -22,5 +23,6 @@ export default function clickOnFilter(allTodoArr, completedTasksArr, allProjsArr
         completedTasksArr.forEach((task) => {
             displayTasks(completedTasksArr, completedTasksArr.indexOf(task), allProjsArr);
         })
+        display.setAttribute('class', 'completedTasks');
     })
 }

@@ -17,13 +17,14 @@ export default function selectFilter(allTodoArr, filter, allProjsArr) {
             const nullTodayDisplay = document.createElement('p');
             nullTodayDisplay.innerHTML = 'No tasks due today';
             display.appendChild(nullTodayDisplay);
-        //display tasks which match filter of dueDate:today
+        //display tasks which match filter of dueDate:today's date
         } else {
             clearDisplay();
             indexArr.forEach((i) => {
                 displayTasks(allTodoArr, i, allProjsArr);
             })
         }
+        display.setAttribute('class', filter.substring(0, filter.indexOf(':')));
         //check for tasks that match the project clicked on and return array of indexes of these tasks
     } else if (filter.substring(0, filter.indexOf(':')) == 'project') {
         allTodoArr.forEach((todo, index) => {
@@ -44,5 +45,6 @@ export default function selectFilter(allTodoArr, filter, allProjsArr) {
                 displayTasks(allTodoArr, i, allProjsArr);
             })
         }
+        display.setAttribute('class', filter.substring(filter.indexOf(':') + 1));
     }
 }

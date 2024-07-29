@@ -9,6 +9,7 @@ export default function displayTasks(allTodoArr, index, allProjsArr) {
     const projectDisplay = document.createElement('p');
     const priorityDisplay = document.createElement('p');
     const editBtn = document.createElement('button');
+    //index provided here depends on the index array provided in filterSelection.js, where this module is called
     titleDisplay.innerHTML = allTodoArr[index].title;
     taskDisplay.appendChild(titleDisplay);
     duedateDisplay.innerHTML = allTodoArr[index].dueDate;
@@ -19,6 +20,7 @@ export default function displayTasks(allTodoArr, index, allProjsArr) {
     taskDisplay.appendChild(priorityDisplay);
     descDisplay.innerHTML = allTodoArr[index].description;
     taskDisplay.appendChild(descDisplay);
+    //add edit button to all tasks
     editBtn.innerHTML = 'Edit';
     editBtn.setAttribute('id', 'editbtn');
     taskDisplay.appendChild(editBtn);
