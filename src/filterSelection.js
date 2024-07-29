@@ -1,7 +1,7 @@
 import displayTasks from './displayTasks.js';
 import clearDisplay from './clearDisplay.js';
 
-export default function selectFilter(allTodoArr, filter, allProjsArr) {
+export default function selectFilter(allTodoArr, filter, allProjsArr, completedTasksArr) {
     let indexArr = [];
     const display = document.querySelector('#display');
     //check for tasks due today and return array of indexes of these tasks
@@ -46,5 +46,32 @@ export default function selectFilter(allTodoArr, filter, allProjsArr) {
             })
         }
         display.setAttribute('class', filter.substring(filter.indexOf(':') + 1));
+    }
+    else if (filter == 'alltasks') {
+        if (allTodoArr.length == 0) {
+            clearDisplay();
+            const nullTasksDisplay = document.createElement('p');
+            nullTasksDisplay.innerHTML = 'No tasks created yet';
+            display.appendChild(nullTasksDisplay);
+        } else {
+            clearDisplay();
+            allTodoArr.forEach((task) => {
+                displayTasks(allTodoArr, allTodoArr.indexOf(task), allProjsArr)
+            })
+        }
+        display.setAttribute('class', 'allTasks');
+    } else if (filter == 'completedtasks') {
+        if (completedTasksArr.length == 0) {
+            clearDisplay();
+            const nullCompletedTasksDisplay = document.createElement('p');
+            nullCompletedTasksDisplay.innerHTML = 'No tasks completed yet';
+            display.appendChild(nullCompletedTasksDisplay);
+        } else {
+            clearDisplay();
+            completedTasksArr.forEach((task) => {
+                displayTasks(completedTasksArr, completedTasksArr.indexOf(task), allProjsArr)
+            })
+        }
+        display.setAttribute('class', 'completedTasks');
     }
 }
