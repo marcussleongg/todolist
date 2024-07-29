@@ -91,4 +91,5 @@ body {
 
 #bottomdisplay > p:first-child {
     margin-bottom: -0.5em;
+    margin-top: 0em;
 }

@@ -19,10 +19,10 @@ export default function editBtnFunc(allTodoArr, index, allProjsArr, completedTas
         editBtn.addEventListener('click', () => {
             prepForm(projectDropdown, allProjsArr);
             displayName.value = editBtn.parentNode.firstChild.textContent;
-            displayDesc.value = editBtn.previousElementSibling.textContent;
-            displayDuedate.value = editBtn.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent;
-            displayPriority.value = editBtn.previousElementSibling.previousElementSibling.textContent;
-            displayProject.value = editBtn.previousElementSibling.previousElementSibling.previousElementSibling.textContent;
+            displayDesc.value = editBtn.parentNode.nextSibling.firstChild.textContent;
+            displayDuedate.value = editBtn.previousElementSibling.previousElementSibling.textContent.slice(5);
+            displayPriority.value = editBtn.previousElementSibling.textContent.slice(10);
+            displayProject.value = editBtn.parentNode.nextSibling.lastChild.textContent.slice(9);
             editDialog.showModal();
             formBtn.addEventListener('click', () => {
                 event.preventDefault();
