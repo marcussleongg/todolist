@@ -68,10 +68,27 @@ body {
     cursor: pointer;
 }
 
-#display div {
+#display > div {
     background-color: rgb(231, 194, 194);
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     border-radius: 20px;
     box-shadow: rgb(54, 54, 54, 90%) 0.3em 0.3em 0.5em;;
+}
+
+#topdisplay {
+    display: grid;
+    grid: 1fr / 5fr 2fr 2fr 1fr 1fr;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+#bottomdisplay {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2em;
+}
+
+#bottomdisplay > p:first-child {
+    margin-bottom: -0.5em;
 }
