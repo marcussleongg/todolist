@@ -14,6 +14,7 @@ export default function clickOnFilter(allTodoArr, completedTasksArr, allProjsArr
     })
     const completedTasks = document.querySelector('#completedtasks');
     completedTasks.addEventListener('click', () => {
+        console.log(completedTasksArr);
         selectFilter(allTodoArr, 'completedtasks', allProjsArr, completedTasksArr);
     })
 }

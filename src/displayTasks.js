@@ -2,7 +2,7 @@ import editBtnFunc from './editBtn.js';
 import delBtnFunc from './deleteBtn.js';
 import toggleExpansion from './toggleExpansion.js';
 
-export default function displayTasks(allTodoArr, index, allProjsArr, completedTasksArr) {
+export default function displayTasks(arr, index, allProjsArr, completedTasksArr, allTodoArr) {
     const display = document.querySelector('#display');
     const taskDisplay = document.createElement('div');
     const topDisplay = document.createElement('div');
@@ -12,32 +12,32 @@ export default function displayTasks(allTodoArr, index, allProjsArr, completedTa
     const duedateDisplay = document.createElement('p');
     const projectDisplay = document.createElement('p');
     const priorityDisplay = document.createElement('p');
-    const editBtn = document.createElement('button');
     const delBtn = document.createElement('button');
     //index provided here depends on the index array provided in filterSelection.js, where this module is called
-    titleDisplay.innerHTML = allTodoArr[index].title;
+    titleDisplay.innerHTML = arr[index].title;
     titleDisplay.style.fontWeight = 'bold';
     topDisplay.appendChild(titleDisplay);
-    duedateDisplay.innerHTML = `Due: ${allTodoArr[index].dueDate}`;
+    duedateDisplay.innerHTML = `Due: ${arr[index].dueDate}`;
     topDisplay.appendChild(duedateDisplay);
-    priorityDisplay.innerHTML = `Priority: ${allTodoArr[index].priority}`;
-    if (allTodoArr[index].priority == 'Low') {
+    priorityDisplay.innerHTML = `Priority: ${arr[index].priority}`;
+    if (arr[index].priority == 'Low') {
         priorityDisplay.style.color = 'green';
-    } else if (allTodoArr[index].priority == 'Medium') {
+    } else if (arr[index].priority == 'Medium') {
         priorityDisplay.style.color = 'orange';
-    } else if (allTodoArr[index].priority == 'High') {
+    } else if (arr[index].priority == 'High') {
         priorityDisplay.style.color = 'red';
     }
     topDisplay.appendChild(priorityDisplay);
-    descDisplay.innerHTML = allTodoArr[index].description;
+    descDisplay.innerHTML = arr[index].description;
     bottomDisplay.appendChild(descDisplay);
-    projectDisplay.innerHTML = `Project: ${allTodoArr[index].project}`;
+    projectDisplay.innerHTML = `Project: ${arr[index].project}`;
     bottomDisplay.appendChild(projectDisplay);
-    //add edit button to all tasks
+    //add edit button to task
+    const editBtn = document.createElement('button');
     editBtn.innerHTML = 'Edit';
     editBtn.setAttribute('id', 'editbtn');
     topDisplay.appendChild(editBtn);
-    //add delete button to all tasks
+    //add delete button to task
     delBtn.innerHTML = 'Delete';
     delBtn.setAttribute('id', 'delbtn');
     topDisplay.appendChild(delBtn);
@@ -50,6 +50,6 @@ export default function displayTasks(allTodoArr, index, allProjsArr, completedTa
         toggleExpansion(taskDisplay);
     })
     display.appendChild(taskDisplay);
-    editBtnFunc(allTodoArr, index, allProjsArr, completedTasksArr);
-    delBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
+    editBtnFunc(allTodoArr, allProjsArr, completedTasksArr, 'newtask');
+    //delBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
 }

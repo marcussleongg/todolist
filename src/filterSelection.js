@@ -1,5 +1,7 @@
 import displayTasks from './displayTasks.js';
 import clearDisplay from './clearDisplay.js';
+import editBtnFunc from './editBtn.js';
+import deleteBtnFunc from './deleteBtn.js';
 
 export default function selectFilter(allTodoArr, filter, allProjsArr, completedTasksArr) {
     let indexArr = [];
@@ -21,7 +23,9 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
         } else {
             clearDisplay();
             indexArr.forEach((i) => {
-                displayTasks(allTodoArr, i, allProjsArr, completedTasksArr);
+                displayTasks(allTodoArr, i, allProjsArr, completedTasksArr, allTodoArr);
+                //editBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
+                //deleteBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
             })
         }
         display.setAttribute('class', filter);
@@ -42,13 +46,13 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
         } else {
             clearDisplay();
             indexArr.forEach((i) => {
-                displayTasks(allTodoArr, i, allProjsArr, completedTasksArr);
-            })
+                displayTasks(allTodoArr, i, allProjsArr, completedTasksArr, allTodoArr);
+                //editBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
+                //deleteBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
+        })
         }
         display.setAttribute('class', filter);
-    }
-    else if (filter == 'alltasks') {
-        console.log('working here')
+    } else if (filter == 'alltasks') {
         if (allTodoArr.length == 0) {
             clearDisplay();
             const nullTasksDisplay = document.createElement('p');
@@ -57,7 +61,9 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
         } else {
             clearDisplay();
             allTodoArr.forEach((task) => {
-                displayTasks(allTodoArr, allTodoArr.indexOf(task), allProjsArr, completedTasksArr)
+                displayTasks(allTodoArr, allTodoArr.indexOf(task), allProjsArr, completedTasksArr, allTodoArr);
+                //editBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
+                //deleteBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
             })
         }
         display.setAttribute('class', 'alltasks');
@@ -70,7 +76,9 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
         } else {
             clearDisplay();
             completedTasksArr.forEach((task) => {
-                displayTasks(completedTasksArr, completedTasksArr.indexOf(task), allProjsArr, completedTasksArr)
+                displayTasks(completedTasksArr, completedTasksArr.indexOf(task), allProjsArr, completedTasksArr, allTodoArr);
+                //editBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
+                //deleteBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
             })
         }
         display.setAttribute('class', 'completedtasks');

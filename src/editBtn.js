@@ -4,7 +4,7 @@ import selectFilter from "./filterSelection.js";
 import toggleExpansion from "./toggleExpansion.js";
 import { format } from "date-fns";
 
-export default function editBtnFunc(allTodoArr, index, allProjsArr, completedTasksArr) {
+export default function editBtnFunc(allTodoArr, allProjsArr, completedTasksArr, newTask) {
     const display = document.querySelector('#display');
     const editForm = document.querySelector('#editForm');
     const editDialog = document.querySelector('#editDialog');
@@ -15,10 +15,12 @@ export default function editBtnFunc(allTodoArr, index, allProjsArr, completedTas
     const displayDuedate = document.querySelector('#editDuedate');
     const displayPriority = document.querySelector('#editPriority');
     const displayProject = document.querySelector('#editProject');
+    const completed = document.querySelector('#editComplete');
     const formBtn = document.querySelector('#editTask');
     const editCloseBtn = document.querySelector('#editCloseBtn');
     allEditBtns.forEach((editBtn) => {
         editBtn.addEventListener('click', () => {
+            console.log('edit btn pushed');
             toggleExpansion(editBtn.parentNode.parentNode);
             prepForm(projectDropdown, allProjsArr);
             displayName.value = editBtn.parentNode.firstChild.textContent;
@@ -27,16 +29,27 @@ export default function editBtnFunc(allTodoArr, index, allProjsArr, completedTas
             displayDuedate.setAttribute('min', format(new Date(), "yyyy-MM-dd"))
             displayPriority.value = editBtn.previousElementSibling.textContent.slice(10);
             displayProject.value = editBtn.parentNode.nextSibling.lastChild.textContent.slice(9);
+            if (display.className == 'completedtasks') {
+                completed.checked = true;
+            } else {
+                completed.checked = false;
+            }
             editDialog.showModal();
-            formBtn.addEventListener('click', () => {
-                event.preventDefault();
-                editTask(editBtn.parentNode.firstChild.textContent, document.getElementById('editName').value, document.getElementById('editDesc').value, document.getElementById('editDuedate').value, document.getElementById('editPriority').value, document.getElementById('editProject').value, allTodoArr);
-                selectFilter(allTodoArr, display.className, allProjsArr, completedTasksArr);
-                editDialog.close();
-                editForm.reset();
-            })
         })
     })
+    if (newTask != 'newtask') {
+        console.log('i am a new task');
+        formBtn.addEventListener('click', () => {
+            event.preventDefault();
+            //console.log(display.firstElementChild.firstElementChild.firstElementChild.textContent);
+            console.log(document.getElementById('editName').value);
+            editTask(display.firstElementChild.firstElementChild.firstElementChild.textContent, document.getElementById('editName').value, document.getElementById('editDesc').value, document.getElementById('editDuedate').value, document.getElementById('editPriority').value, document.getElementById('editProject').value, document.getElementById('editComplete').checked, allTodoArr, completedTasksArr, allProjsArr);
+            //selectFilter(allTodoArr, display.className, allProjsArr, completedTasksArr);
+            editDialog.close();
+            editForm.reset();
+            console.log('bruh');
+        })
+    }
     editCloseBtn.addEventListener('click', () => {
         editDialog.close();
         editForm.reset();
