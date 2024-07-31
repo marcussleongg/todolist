@@ -12,7 +12,7 @@ export default function displayTasks(arr, index, allProjsArr, completedTasksArr,
     const duedateDisplay = document.createElement('p');
     const projectDisplay = document.createElement('p');
     const priorityDisplay = document.createElement('p');
-    const delBtn = document.createElement('button');
+    const delBtn = document.createElement('div');
     //index provided here depends on the index array provided in filterSelection.js, where this module is called
     titleDisplay.innerHTML = arr[index].title;
     titleDisplay.style.fontWeight = 'bold';
@@ -34,12 +34,12 @@ export default function displayTasks(arr, index, allProjsArr, completedTasksArr,
     projectDisplay.innerHTML = `Project: ${arr[index].project}`;
     bottomDisplay.appendChild(projectDisplay);
     //add edit button to task
-    const editBtn = document.createElement('button');
-    editBtn.innerHTML = 'Edit';
+    const editBtn = document.createElement('div');
+    editBtn.innerHTML = '<img src="../src/pen.png" alt="Edit" id="editIcon"></img>';
     editBtn.setAttribute('id', 'editbtn');
     topDisplay.appendChild(editBtn);
     //add delete button to task
-    delBtn.innerHTML = 'Delete';
+    delBtn.innerHTML = '<img src="../src/trash-can-bin.png" alt="Delete" id="delIcon"></img>';
     delBtn.setAttribute('id', 'delbtn');
     topDisplay.appendChild(delBtn);
     taskDisplay.appendChild(topDisplay);
