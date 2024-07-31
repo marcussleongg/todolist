@@ -23,6 +23,7 @@ export default function editTask(task, newTitle, newDescription, newDueDate, new
         }
         selectFilter(allTodoArr, display.className, allProjsArr, completedTasksArr);
     } else {
+        console.log(completedTasksArr);
         const taskIndex = allTodoArr.map(e => e.title).indexOf(task);
         console.log(taskIndex);
         console.log(allTodoArr[taskIndex])

@@ -1,7 +1,7 @@
 import createProject from './createProject.js';
 import displayProj from './displayProj.js';
 
-export default function newProjBtnFunc(allProjsArr, allTodoArr) {
+export default function newProjBtnFunc(allProjsArr, allTodoArr, completedTasksArr) {
     const newProjBtn = document.querySelector('#newProj')
     const projForm = document.querySelector('#projForm');
     const projDialog = document.querySelector('#projDialog');
@@ -17,7 +17,7 @@ export default function newProjBtnFunc(allProjsArr, allTodoArr) {
     addProjBtn.addEventListener('click', () => {
         event.preventDefault();
         createProject(document.getElementById('title').value, allProjsArr);
-        displayProj(allProjsArr, allTodoArr);
+        displayProj(allProjsArr, allTodoArr, completedTasksArr);
         projDialog.close();
         projForm.reset();
     })

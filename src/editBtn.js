@@ -45,8 +45,10 @@ export default function editBtnFunc(allTodoArr, allProjsArr, completedTasksArr, 
             editDialog.showModal();
             //if (newTask != 'newtask') {
                 //console.log('i am a new task');
+            console.log(completedTasksArr);
             newFormBtn.addEventListener('click', () => {
                 event.preventDefault();
+                console.log(completedTasksArr);
                 //console.log(editBtn.parentNode.firstChild.textContent);
                 editTask(editBtn.parentNode.firstChild.textContent, document.getElementById('editName').value, document.getElementById('editDesc').value, document.getElementById('editDuedate').value, document.getElementById('editPriority').value, document.getElementById('editProject').value, document.getElementById('editComplete').checked, allTodoArr, completedTasksArr, allProjsArr);
                 //selectFilter(allTodoArr, display.className, allProjsArr, completedTasksArr);
