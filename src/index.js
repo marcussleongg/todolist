@@ -27,4 +27,4 @@ selectFilter(todos, 'alltasks', projects, completed);
 clickOnFilter(todos, completed, projects);
 newTaskBtnFunc(projects, todos, completed);
 newProjBtnFunc(projects, todos);
-editBtnFunc(todos, projects, completed);
+//editBtnFunc(todos, projects, completed);

@@ -4,7 +4,7 @@ import selectFilter from "./filterSelection.js";
 import toggleExpansion from "./toggleExpansion.js";
 import { format } from "date-fns";
 
-export default function editBtnFunc(allTodoArr, allProjsArr, completedTasksArr, newTask) {
+export default function editBtnFunc(allTodoArr, allProjsArr, completedTasksArr, taskTitle) {
     const display = document.querySelector('#display');
     const editForm = document.querySelector('#editForm');
     const editDialog = document.querySelector('#editDialog');
@@ -18,7 +18,9 @@ export default function editBtnFunc(allTodoArr, allProjsArr, completedTasksArr, 
     const completed = document.querySelector('#editComplete');
     //const formBtn = document.querySelector('#editTask');
     const editCloseBtn = document.querySelector('#editCloseBtn');
-    allEditBtns.forEach((editBtn) => {
+    const task = document.getElementById(taskTitle);
+    const editBtn = task.nextElementSibling.nextElementSibling.nextElementSibling;
+    //allEditBtns.forEach((editBtn) => {
         editBtn.addEventListener('click', () => {
             console.log('edit btn pushed');
             const formBtn = document.querySelector('#editTask');
@@ -54,7 +56,7 @@ export default function editBtnFunc(allTodoArr, allProjsArr, completedTasksArr, 
             })
             //}
         })
-    })
+    //})
     editCloseBtn.addEventListener('click', () => {
         editDialog.close();
         editForm.reset();

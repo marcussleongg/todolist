@@ -1,50 +1,35 @@
 import deleteTask from './deleteTask.js';
 import selectFilter from './filterSelection.js';
 
-export default function deleteBtnFunc(allTodoArr, allProjsArr, completedTasksArr, fromEdit) {
+export default function deleteBtnFunc(allTodoArr, allProjsArr, completedTasksArr, taskTitle) {
     let display = document.querySelector('#display');
     let allDelBtns = document.querySelectorAll('#delbtn');
-    if (fromEdit == 'fromedit') {
+    let topDisplays = document.querySelectorAll('#topdisplay');
+    const task = document.getElementById(taskTitle);
+    const delBtn = task.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
+    //topDisplays.forEach((topDisplay) => {
+        //const delBtn = topDisplay.querySelector('#delbtn');
+        //topDisplay.removeChild(delBtn);
+        delBtn.parentNode.removeChild(delBtn);
+        console.log('mew');
+        const newDelBtn = document.createElement('button');
+        newDelBtn.innerHTML = 'Deletebb';
+        //newDelBtn.setAttribute('id', 'delbtn');
+        //topDisplay.appendChild(newDelBtn);
+        task.parentNode.appendChild(newDelBtn);
         if (display.className == 'completedtasks') {
-            allDelBtns.forEach((delBtn) => {
-                console.log('what');
-                console.log(completedTasksArr);
-                delBtn.addEventListener('click', () => {
-                    deleteTask(delBtn.parentNode.firstChild.textContent, completedTasksArr);
-                    console.log(completedTasksArr);
-                    selectFilter(allTodoArr, display.className, allProjsArr, completedTasksArr);
-                })
+            console.log('i am added only when filter is clicked');
+            newDelBtn.addEventListener('click', () => {
+                console.log('yes');
+                deleteTask(newDelBtn.parentNode.firstChild.textContent, completedTasksArr);
+                selectFilter(allTodoArr, display.className, allProjsArr, completedTasksArr);
             })
         } else {
-            allDelBtns.forEach((delBtn) => {
-                delBtn.addEventListener('click', () => {
-                    console.log('ok');
-                    deleteTask(delBtn.parentNode.firstChild.textContent, allTodoArr);
-                    selectFilter(allTodoArr, display.className, allProjsArr, completedTasksArr);
-                })
-            })
-        }
-    } else {
-        display = document.querySelector('#display');
-        allDelBtns = document.querySelectorAll('#delbtn');
-        if (display.className == 'completedtasks') {
-            allDelBtns.forEach((delBtn) => {
+            newDelBtn.addEventListener('click', () => {
                 console.log('what');
-                console.log(completedTasksArr);
-                delBtn.addEventListener('click', () => {
-                    deleteTask(delBtn.parentNode.firstChild.textContent, completedTasksArr);
-                    console.log(completedTasksArr);
-                    selectFilter(allTodoArr, display.className, allProjsArr, completedTasksArr);
-                })
-            })
-        } else {
-            allDelBtns.forEach((delBtn) => {
-                delBtn.addEventListener('click', () => {
-                    console.log('whathe');
-                    deleteTask(delBtn.parentNode.firstChild.textContent, allTodoArr);
-                    selectFilter(allTodoArr, display.className, allProjsArr, completedTasksArr);
-                })
+                deleteTask(newDelBtn.parentNode.firstChild.textContent, allTodoArr);
+                selectFilter(allTodoArr, display.className, allProjsArr, completedTasksArr);
             })
         }
-    }
+    //})
 }

@@ -8,6 +8,7 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
     const display = document.querySelector('#display');
     //check for tasks due today and return array of indexes of these tasks
     if (filter.substring(0, filter.indexOf(':')) == 'dueDate') {
+        display.setAttribute('class', filter);
         allTodoArr.forEach((todo, index) => {
             if (todo.dueDate == filter.substring(filter.indexOf(':') + 1)) {
                 indexArr.push(index);
@@ -28,9 +29,9 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
                 //deleteBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
             })
         }
-        display.setAttribute('class', filter);
         //check for tasks that match the project clicked on and return array of indexes of these tasks
     } else if (filter.substring(0, filter.indexOf(':')) == 'project') {
+        display.setAttribute('class', filter);
         allTodoArr.forEach((todo, index) => {
             if (todo.project == filter.substring(filter.indexOf(':') + 1)) {
                 indexArr.push(index);
@@ -51,8 +52,8 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
                 //deleteBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
         })
         }
-        display.setAttribute('class', filter);
     } else if (filter == 'alltasks') {
+        display.setAttribute('class', 'alltasks');
         if (allTodoArr.length == 0) {
             clearDisplay();
             const nullTasksDisplay = document.createElement('p');
@@ -66,8 +67,8 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
                 //deleteBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
             })
         }
-        display.setAttribute('class', 'alltasks');
     } else if (filter == 'completedtasks') {
+        display.setAttribute('class', 'completedtasks');
         if (completedTasksArr.length == 0) {
             clearDisplay();
             const nullCompletedTasksDisplay = document.createElement('p');
@@ -81,6 +82,5 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
                 //deleteBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
             })
         }
-        display.setAttribute('class', 'completedtasks');
     }
 }
