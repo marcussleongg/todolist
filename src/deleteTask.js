@@ -1,4 +1,3 @@
-export default function deleteTask(task, allTodoArr) {
-    allTodoArr.splice(allTodoArr.map(e => e.title).indexOf(task), 1);
-    console.log(allTodoArr);
+export default function deleteTask(task, arr) {
+    arr.splice(arr.map(e => e.title).indexOf(task), 1);
 }

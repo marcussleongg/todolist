@@ -51,5 +51,5 @@ export default function displayTasks(arr, index, allProjsArr, completedTasksArr,
     })
     display.appendChild(taskDisplay);
     editBtnFunc(allTodoArr, allProjsArr, completedTasksArr, 'newtask');
-    //delBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
+    delBtnFunc(allTodoArr, allProjsArr, completedTasksArr, 'fromedit');
 }

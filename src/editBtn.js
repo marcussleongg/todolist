@@ -16,11 +16,12 @@ export default function editBtnFunc(allTodoArr, allProjsArr, completedTasksArr, 
     const displayPriority = document.querySelector('#editPriority');
     const displayProject = document.querySelector('#editProject');
     const completed = document.querySelector('#editComplete');
-    const formBtn = document.querySelector('#editTask');
+    //const formBtn = document.querySelector('#editTask');
     const editCloseBtn = document.querySelector('#editCloseBtn');
     allEditBtns.forEach((editBtn) => {
         editBtn.addEventListener('click', () => {
             console.log('edit btn pushed');
+            const formBtn = document.querySelector('#editTask');
             toggleExpansion(editBtn.parentNode.parentNode);
             prepForm(projectDropdown, allProjsArr);
             displayName.value = editBtn.parentNode.firstChild.textContent;
@@ -34,22 +35,26 @@ export default function editBtnFunc(allTodoArr, allProjsArr, completedTasksArr, 
             } else {
                 completed.checked = false;
             }
+            editForm.removeChild(formBtn);
+            const newFormBtn = document.createElement('button');
+            newFormBtn.setAttribute('id', 'editTask');
+            newFormBtn.innerHTML = 'Edit Task';
+            editForm.appendChild(newFormBtn);
             editDialog.showModal();
+            //if (newTask != 'newtask') {
+                //console.log('i am a new task');
+            newFormBtn.addEventListener('click', () => {
+                event.preventDefault();
+                //console.log(editBtn.parentNode.firstChild.textContent);
+                editTask(editBtn.parentNode.firstChild.textContent, document.getElementById('editName').value, document.getElementById('editDesc').value, document.getElementById('editDuedate').value, document.getElementById('editPriority').value, document.getElementById('editProject').value, document.getElementById('editComplete').checked, allTodoArr, completedTasksArr, allProjsArr);
+                //selectFilter(allTodoArr, display.className, allProjsArr, completedTasksArr);
+                editDialog.close();
+                editForm.reset();
+                //console.log('bruh');
+            })
+            //}
         })
     })
-    if (newTask != 'newtask') {
-        console.log('i am a new task');
-        formBtn.addEventListener('click', () => {
-            event.preventDefault();
-            //console.log(display.firstElementChild.firstElementChild.firstElementChild.textContent);
-            console.log(document.getElementById('editName').value);
-            editTask(display.firstElementChild.firstElementChild.firstElementChild.textContent, document.getElementById('editName').value, document.getElementById('editDesc').value, document.getElementById('editDuedate').value, document.getElementById('editPriority').value, document.getElementById('editProject').value, document.getElementById('editComplete').checked, allTodoArr, completedTasksArr, allProjsArr);
-            //selectFilter(allTodoArr, display.className, allProjsArr, completedTasksArr);
-            editDialog.close();
-            editForm.reset();
-            console.log('bruh');
-        })
-    }
     editCloseBtn.addEventListener('click', () => {
         editDialog.close();
         editForm.reset();

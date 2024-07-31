@@ -6,6 +6,10 @@ export default function editTask(task, newTitle, newDescription, newDueDate, new
     const display = document.querySelector('#display');
     if (display.className == 'completedtasks') {
         const completedTaskIndex = completedTasksArr.map(e => e.title).indexOf(task);
+        console.log(task);
+        console.log(completedTasksArr[0]);
+        //why is the code here running twice, and the first round using the old task name from the previous round
+        console.log(completedTasksArr);
         completedTasksArr[completedTaskIndex]['title'] = newTitle;
         completedTasksArr[completedTaskIndex]['description'] = newDescription;
         completedTasksArr[completedTaskIndex]['dueDate'] = newDueDate;
@@ -30,11 +34,14 @@ export default function editTask(task, newTitle, newDescription, newDueDate, new
         allTodoArr[taskIndex]['completed'] = newCompleted;
         console.log(allTodoArr[taskIndex]);
         if (allTodoArr[taskIndex]['completed'] == true) {
+            console.log(allTodoArr[allTodoArr.map(e => e.title).indexOf(newTitle)]);
             completedTasksArr.push(allTodoArr[allTodoArr.map(e => e.title).indexOf(newTitle)]);
+            console.log(completedTasksArr[0]);
             allTodoArr.splice(allTodoArr.map(e => e.title).indexOf(newTitle), 1);
         }
         selectFilter(allTodoArr, display.className, allProjsArr, completedTasksArr);
     }
     console.log(allTodoArr);
     console.log(completedTasksArr);
+    console.log(completedTasksArr[0]);
 }

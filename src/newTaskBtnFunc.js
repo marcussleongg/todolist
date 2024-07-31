@@ -26,8 +26,8 @@ export default function newTaskBtnFunc(allProjsArr, allTodoArr, completedTasksAr
         event.preventDefault();
         createTodo(document.getElementById('name').value, document.getElementById('desc').value, document.getElementById('duedate').value, document.getElementById('priority').value, document.getElementById('project').value, allTodoArr);
         //update display
-        selectFilter(allTodoArr, display.className, allProjsArr, completedTasksArr, 'no');
-        editBtnFunc(allTodoArr, allProjsArr, completedTasksArr, 'newtask');
+        selectFilter(allTodoArr, display.className, allProjsArr, completedTasksArr);
+        //editBtnFunc(allTodoArr, allProjsArr, completedTasksArr, 'newtask');
         taskDialog.close();
         taskForm.reset();
     })
