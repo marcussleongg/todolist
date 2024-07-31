@@ -1,6 +1,6 @@
 import prepForm from "./prepForm.js";
 import editTask from "./editTask.js";
-import selectFilter from "./filterSelection.js";
+//import selectFilter from "./filterSelection.js";
 import toggleExpansion from "./toggleExpansion.js";
 import { format } from "date-fns";
 
@@ -9,7 +9,7 @@ export default function editBtnFunc(allTodoArr, allProjsArr, completedTasksArr, 
     const editForm = document.querySelector('#editForm');
     const editDialog = document.querySelector('#editDialog');
     const projectDropdown = document.querySelector('#editProject');
-    const allEditBtns = document.querySelectorAll('#editbtn');
+    //const allEditBtns = document.querySelectorAll('#editbtn');
     const displayName = document.querySelector('#editName');
     const displayDesc = document.querySelector('#editDesc');
     const displayDuedate = document.querySelector('#editDuedate');
@@ -22,7 +22,7 @@ export default function editBtnFunc(allTodoArr, allProjsArr, completedTasksArr, 
     const editBtn = task.nextElementSibling.nextElementSibling.nextElementSibling;
     //allEditBtns.forEach((editBtn) => {
         editBtn.addEventListener('click', () => {
-            console.log('edit btn pushed');
+            //console.log('edit btn pushed');
             const formBtn = document.querySelector('#editTask');
             toggleExpansion(editBtn.parentNode.parentNode);
             prepForm(projectDropdown, allProjsArr);
@@ -45,16 +45,13 @@ export default function editBtnFunc(allTodoArr, allProjsArr, completedTasksArr, 
             editDialog.showModal();
             //if (newTask != 'newtask') {
                 //console.log('i am a new task');
-            console.log(completedTasksArr);
             newFormBtn.addEventListener('click', () => {
                 event.preventDefault();
-                console.log(completedTasksArr);
                 //console.log(editBtn.parentNode.firstChild.textContent);
                 editTask(editBtn.parentNode.firstChild.textContent, document.getElementById('editName').value, document.getElementById('editDesc').value, document.getElementById('editDuedate').value, document.getElementById('editPriority').value, document.getElementById('editProject').value, document.getElementById('editComplete').checked, allTodoArr, completedTasksArr, allProjsArr);
                 //selectFilter(allTodoArr, display.className, allProjsArr, completedTasksArr);
                 editDialog.close();
                 editForm.reset();
-                //console.log('bruh');
             })
             //}
         })

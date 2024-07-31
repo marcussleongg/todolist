@@ -5,5 +5,4 @@ export default function createProject(title, projectsArr) {
         }
     }
     projectsArr.push(new Project(title));
-    console.log(projectsArr[0]['title']);
 }

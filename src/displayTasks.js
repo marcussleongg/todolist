@@ -16,7 +16,6 @@ export default function displayTasks(arr, index, allProjsArr, completedTasksArr,
     //index provided here depends on the index array provided in filterSelection.js, where this module is called
     titleDisplay.innerHTML = arr[index].title;
     titleDisplay.style.fontWeight = 'bold';
-    console.log(titleDisplay.innerHTML);
     titleDisplay.setAttribute('id', titleDisplay.innerHTML);
     topDisplay.appendChild(titleDisplay);
     duedateDisplay.innerHTML = `Due: ${arr[index].dueDate}`;
@@ -52,6 +51,7 @@ export default function displayTasks(arr, index, allProjsArr, completedTasksArr,
         toggleExpansion(taskDisplay);
     })
     display.appendChild(taskDisplay);
+    //add functionality to individual edit and delete buttons for each task
     editBtnFunc(allTodoArr, allProjsArr, completedTasksArr, titleDisplay.innerHTML);
     delBtnFunc(allTodoArr, allProjsArr, completedTasksArr, titleDisplay.innerHTML);
 }

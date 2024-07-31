@@ -1,7 +1,5 @@
 import displayTasks from './displayTasks.js';
 import clearDisplay from './clearDisplay.js';
-import editBtnFunc from './editBtn.js';
-import deleteBtnFunc from './deleteBtn.js';
 
 export default function selectFilter(allTodoArr, filter, allProjsArr, completedTasksArr) {
     let indexArr = [];
@@ -25,8 +23,6 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
             clearDisplay();
             indexArr.forEach((i) => {
                 displayTasks(allTodoArr, i, allProjsArr, completedTasksArr, allTodoArr);
-                //editBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
-                //deleteBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
             })
         }
         //check for tasks that match the project clicked on and return array of indexes of these tasks
@@ -48,8 +44,6 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
             clearDisplay();
             indexArr.forEach((i) => {
                 displayTasks(allTodoArr, i, allProjsArr, completedTasksArr, allTodoArr);
-                //editBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
-                //deleteBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
         })
         }
     } else if (filter == 'alltasks') {
@@ -63,8 +57,6 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
             clearDisplay();
             allTodoArr.forEach((task) => {
                 displayTasks(allTodoArr, allTodoArr.indexOf(task), allProjsArr, completedTasksArr, allTodoArr);
-                //editBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
-                //deleteBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
             })
         }
     } else if (filter == 'completedtasks') {
@@ -78,8 +70,6 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
             clearDisplay();
             completedTasksArr.forEach((task) => {
                 displayTasks(completedTasksArr, completedTasksArr.indexOf(task), allProjsArr, completedTasksArr, allTodoArr);
-                //editBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
-                //deleteBtnFunc(allTodoArr, allProjsArr, completedTasksArr);
             })
         }
     }

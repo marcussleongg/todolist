@@ -1,17 +1,16 @@
 import './style.css';
-import createProject from './createProject.js';
-import createTodo from './createTodo.js';
-import completeTask from './completeTask.js';
-import editTask from './editTask.js';
-import deleteTask from './deleteTask.js';
-import displayProj from './displayProj.js';
+//import createProject from './createProject.js';
+//import createTodo from './createTodo.js';
+//import editTask from './editTask.js';
+//import deleteTask from './deleteTask.js';
+//import displayProj from './displayProj.js';
 import selectFilter from './filterSelection.js';
 import clickOnFilter from './clickOnFilter.js';
 import newTaskBtnFunc from './newTaskBtnFunc.js';
 import newProjBtnFunc from './newProjBtnFunc.js';
-import editBtnFunc from './editBtn.js';
+//import editBtnFunc from './editBtn.js';
 
-console.log('am i working?');
+//console.log('am i working?');
 const projects = [];
 const todos = [];
 const completed = [];
