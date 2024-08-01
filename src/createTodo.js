@@ -9,5 +9,7 @@ export default function createTodo(title, description, dueDate, priority, projec
             this.completed = false;
         }
     }
-    allTodoArr.push(new ToDo(title, description, dueDate, priority, project));
+    let newTask = new ToDo(title, description, dueDate, priority, project)
+    allTodoArr.push(newTask);
+    localStorage.setItem(newTask.title, JSON.stringify(newTask));
 }
