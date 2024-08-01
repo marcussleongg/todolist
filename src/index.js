@@ -3,7 +3,7 @@ import './style.css';
 //import createTodo from './createTodo.js';
 //import editTask from './editTask.js';
 //import deleteTask from './deleteTask.js';
-//import displayProj from './displayProj.js';
+import displayProj from './displayProj.js';
 import selectFilter from './filterSelection.js';
 import clickOnFilter from './clickOnFilter.js';
 import newTaskBtnFunc from './newTaskBtnFunc.js';
@@ -16,6 +16,19 @@ const todos = [];
 const completed = [];
 
 //access local storage to check if any projects and tasks stored
+const items = {...localStorage};
+if (items.length != 0) {
+    for (let key in items) {
+        if (JSON.parse(items[key])['description'] == undefined ) {
+            projects.push(JSON.parse(items[key]));
+        } else if (JSON.parse(items[key])['completed'] == true) {
+            completed.push(JSON.parse(items[key]));
+        } else {
+            todos.push(JSON.parse(items[key]));
+        }
+    }
+}
+console.log(items);
 
 //createProject('todolist', projects);
 //createProject('build a program', projects);
@@ -23,11 +36,11 @@ const completed = [];
 //createTodo('make something bigger', 'i love making', 'today', 'Low', 'todolist', todos);
 //editTask('make something', 'make something small', 'make it quickly', 'today at night', 'medium', 'todolist', false, todos, completed);
 //completeTask('make something small', todos, completed);
-//displayProj(projects, todos);
 selectFilter(todos, 'alltasks', projects, completed);
 clickOnFilter(todos, completed, projects);
 newTaskBtnFunc(projects, todos, completed);
 newProjBtnFunc(projects, todos, completed);
+displayProj(projects, todos, completed);
 //editBtnFunc(todos, projects, completed);
 
 function storageAvailable(type) {
