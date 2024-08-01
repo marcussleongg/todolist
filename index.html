@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+<script defer src="main.js"></script></head>
+<body>
+    <div id="sidebar">
+        <div id="buttons">
+            <button id="newProj">New Project</button>
+            <button id="newTask">New Task</button>
+        </div>
+        <div id="filters">
+            <p id="alltasks">All Tasks</p>
+            <p id="dueToday">Due Today</p>
+            <p id="completedtasks">Completed</p>
+        </div>
+        <h1>Projects</h1>
+        <div id="projects">
+
+        </div>
+        <a href="https://www.flaticon.com/">Icons from Flaticon</a>
+    </div>
+    <div id="display">
+
+    </div>
+    <dialog id="taskDialog">
+        <button id="taskBtn">X</button>
+        <form id="taskForm">
+            <label for="name">Task Name:</label>
+            <input type="text" id="name" autofocus />
+            <label for="desc">Description:</label>
+            <input type="text" id="desc" />
+            <label for="duedate">Due Date:</label>
+            <input type="date" id="duedate" />
+            <label for="priority">Priority:</label>
+            <select id="priority">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+            <label for="project">Project:</label>
+            <select id="project">
+                <option value="na">-</option>
+            </select>
+            <button id="addTask" type="submit">Add Task</button>
+        </form>
+    </dialog>
+    <dialog id="projDialog">
+        <button id="projBtn">X</button>
+        <form id="projForm">
+            <label for="title">Project Title:</label>
+            <input type="text" id="title" autofocus />
+            <button id="addProj" type="submit">Add Project</button>
+        </form>
+    </dialog>
+    <dialog id="editDialog">
+        <button id="editCloseBtn">X</button>
+        <form id="editForm">
+            <label for="editName">Task Name:</label>
+            <input type="text" id="editName" autofocus />
+            <label for="editDesc">Description:</label>
+            <input type="text" id="editDesc" />
+            <label for="editDuedate">Due Date:</label>
+            <input type="date" id="editDuedate" />
+            <label for="editPriority">Priority:</label>
+            <select id="editPriority">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+            <label for="editProject">Project:</label>
+            <select id="editProject">
+                <option value="na">-</option>
+            </select>
+            <label for="editComplete">Completed</label>
+            <input type="checkbox" id="editComplete" />
+            <button id="editTask" type="submit">Edit Task</button>
+        </form>
+    </dialog>
+</body>
+</html>
