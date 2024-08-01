@@ -54,6 +54,7 @@ body {
 #projects p {
     font-size: 1.7em;
     padding-left: 0.8em;
+    margin-right: 1em;
 }
 
 #projects p:hover {
@@ -152,4 +153,15 @@ body {
     font-style: italic;
     position: absolute;
     bottom: 0;
+}
+
+#display > h1 {
+    display: flex;
+    gap: 1em;
+}
+
+#delProjIcon {
+    width: 0.7em;
+    position: relative;
+    align-self: center;
 }

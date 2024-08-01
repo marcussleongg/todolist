@@ -1,5 +1,7 @@
 import displayTasks from './displayTasks.js';
 import clearDisplay from './clearDisplay.js';
+import deleteProj from './deleteProj.js';
+import displayProj from './displayProj.js';
 
 export default function selectFilter(allTodoArr, filter, allProjsArr, completedTasksArr) {
     let indexArr = [];
@@ -42,6 +44,15 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
         if (indexArr.length == 0) {
             clearDisplay();
             displayFilter.innerHTML = filter.substring(filter.indexOf(':') + 1);
+            //creating delete project button
+            const delProj = document.createElement('span');
+            delProj.innerHTML = '<img src="../src/trash-can-bin.png" alt="Delete" id="delProjIcon"></img>';
+            delProj.addEventListener('click', () => {
+                deleteProj(filter.substring(filter.indexOf(':') + 1), allProjsArr, allTodoArr);
+                displayProj(allProjsArr, allTodoArr, completedTasksArr);
+                selectFilter(allTodoArr, 'alltasks', allProjsArr, completedTasksArr);
+            })
+            displayFilter.appendChild(delProj);
             display.appendChild(displayFilter);
             const nullProjTasksDisplay = document.createElement('p');
             nullProjTasksDisplay.innerHTML = 'No tasks under this project';
@@ -50,6 +61,14 @@ export default function selectFilter(allTodoArr, filter, allProjsArr, completedT
         } else {
             clearDisplay();
             displayFilter.innerHTML = filter.substring(filter.indexOf(':') + 1);
+            const delProj = document.createElement('span');
+            delProj.innerHTML = '<img src="../src/trash-can-bin.png" alt="Delete" id="delProjIcon"></img>';
+            delProj.addEventListener('click', () => {
+                deleteProj(filter.substring(filter.indexOf(':') + 1), allProjsArr, allTodoArr);
+                displayProj(allProjsArr, allTodoArr, completedTasksArr);
+                selectFilter(allTodoArr, 'alltasks', allProjsArr, completedTasksArr);
+            })
+            displayFilter.appendChild(delProj);
             display.appendChild(displayFilter);
             indexArr.forEach((i) => {
                 displayTasks(allTodoArr, i, allProjsArr, completedTasksArr, allTodoArr);
