@@ -4,5 +4,7 @@ export default function createProject(title, projectsArr) {
             this.title = title;
         }
     }
-    projectsArr.push(new Project(title));
+    let newProj = new Project(title);
+    projectsArr.push(newProj);
+    localStorage.setItem(newProj.title, JSON.stringify(newProj));
 }

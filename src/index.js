@@ -15,6 +15,8 @@ const projects = [];
 const todos = [];
 const completed = [];
 
+//access local storage to check if any projects and tasks stored
+
 //createProject('todolist', projects);
 //createProject('build a program', projects);
 //createTodo('make something', 'make it asap', 'today', 'high', 'todolist', todos);
