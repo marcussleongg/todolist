@@ -35,11 +35,11 @@ export default function displayTasks(arr, index, allProjsArr, completedTasksArr,
     bottomDisplay.appendChild(projectDisplay);
     //add edit button to task
     const editBtn = document.createElement('div');
-    editBtn.innerHTML = '<img src="../src/pen.png" alt="Edit" id="editIcon"></img>';
+    editBtn.innerHTML = '<img src="src/pen.png" alt="Edit" id="editIcon"></img>';
     editBtn.setAttribute('id', 'editbtn');
     topDisplay.appendChild(editBtn);
     //add delete button to task
-    delBtn.innerHTML = '<img src="../src/trash-can-bin.png" alt="Delete" id="delIcon"></img>';
+    delBtn.innerHTML = '<img src="src/trash-can-bin.png" alt="Delete" id="delIcon"></img>';
     delBtn.setAttribute('id', 'delbtn');
     topDisplay.appendChild(delBtn);
     taskDisplay.appendChild(topDisplay);
