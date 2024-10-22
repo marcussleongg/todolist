@@ -763,7 +763,7 @@ function deleteBtnFunc(allTodoArr, allProjsArr, completedTasksArr, taskTitle) {
         //topDisplay.removeChild(delBtn);
         delBtn.parentNode.removeChild(delBtn);
         const newDelBtn = document.createElement('div');
-        newDelBtn.innerHTML = '<img src="trash-can-bin.png" alt="Delete" id="delIcon"></img>';
+        newDelBtn.innerHTML = '<img src="./trash-can-bin.png" alt="Delete" id="delIcon"></img>';
         newDelBtn.setAttribute('id', 'delbtn');
         //topDisplay.appendChild(newDelBtn);
         task.parentNode.appendChild(newDelBtn);
@@ -913,11 +913,11 @@ function displayTasks(arr, index, allProjsArr, completedTasksArr, allTodoArr) {
     bottomDisplay.appendChild(projectDisplay);
     //add edit button to task
     const editBtn = document.createElement('div');
-    editBtn.innerHTML = '<img src="pen.png" alt="Edit" id="editIcon"></img>';
+    editBtn.innerHTML = '<img src="./pen.png" alt="Edit" id="editIcon"></img>';
     editBtn.setAttribute('id', 'editbtn');
     topDisplay.appendChild(editBtn);
     //add delete button to task
-    delBtn.innerHTML = '<img src="trash-can-bin.png" alt="Delete" id="delIcon"></img>';
+    delBtn.innerHTML = '<img src="./trash-can-bin.png" alt="Delete" id="delIcon"></img>';
     delBtn.setAttribute('id', 'delbtn');
     topDisplay.appendChild(delBtn);
     taskDisplay.appendChild(topDisplay);
@@ -1142,7 +1142,7 @@ function selectFilter(allTodoArr, filter, allProjsArr, completedTasksArr) {
             displayFilter.innerHTML = filter.substring(filter.indexOf(':') + 1);
             //creating delete project button
             const delProj = document.createElement('span');
-            delProj.innerHTML = '<img src="trash-can-bin.png" alt="Delete" id="delProjIcon"></img>';
+            delProj.innerHTML = '<img src="./trash-can-bin.png" alt="Delete" id="delProjIcon"></img>';
             delProj.addEventListener('click', () => {
                 (0,_deleteProj_js__WEBPACK_IMPORTED_MODULE_2__["default"])(filter.substring(filter.indexOf(':') + 1), allProjsArr, allTodoArr);
                 (0,_displayProj_js__WEBPACK_IMPORTED_MODULE_3__["default"])(allProjsArr, allTodoArr, completedTasksArr);
@@ -1158,7 +1158,7 @@ function selectFilter(allTodoArr, filter, allProjsArr, completedTasksArr) {
             (0,_clearDisplay_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
             displayFilter.innerHTML = filter.substring(filter.indexOf(':') + 1);
             const delProj = document.createElement('span');
-            delProj.innerHTML = '<img src="trash-can-bin.png" alt="Delete" id="delProjIcon"></img>';
+            delProj.innerHTML = '<img src="./trash-can-bin.png" alt="Delete" id="delProjIcon"></img>';
             delProj.addEventListener('click', () => {
                 (0,_deleteProj_js__WEBPACK_IMPORTED_MODULE_2__["default"])(filter.substring(filter.indexOf(':') + 1), allProjsArr, allTodoArr);
                 (0,_displayProj_js__WEBPACK_IMPORTED_MODULE_3__["default"])(allProjsArr, allTodoArr, completedTasksArr);
