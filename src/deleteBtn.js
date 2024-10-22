@@ -12,7 +12,7 @@ export default function deleteBtnFunc(allTodoArr, allProjsArr, completedTasksArr
         //topDisplay.removeChild(delBtn);
         delBtn.parentNode.removeChild(delBtn);
         const newDelBtn = document.createElement('div');
-        newDelBtn.innerHTML = '<img src="../src/trash-can-bin.png" alt="Delete" id="delIcon"></img>';
+        newDelBtn.innerHTML = '<img src="src/trash-can-bin.png" alt="Delete" id="delIcon"></img>';
         newDelBtn.setAttribute('id', 'delbtn');
         //topDisplay.appendChild(newDelBtn);
         task.parentNode.appendChild(newDelBtn);
